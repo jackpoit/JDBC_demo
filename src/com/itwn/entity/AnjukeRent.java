@@ -1,8 +1,10 @@
 package com.itwn.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class AnjukeRent {
+public class AnjukeRent implements Serializable {
+	private static final long serialVersionUID = -8599481742930360952L;
 	private Integer id;
 	private String zone;
 	private String trainLine;

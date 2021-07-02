@@ -8,7 +8,6 @@ import java.math.BigDecimal;
  */
 public class Account implements Serializable {
 	private static final long serialVersionUID = 1L;
-
 	private Integer id;
 	private String name;
 	private BigDecimal balance;
@@ -22,7 +21,6 @@ public class Account implements Serializable {
 		this.name = name;
 		this.balance = balance;
 	}
-
 	public Integer getId() {
 		return id;
 	}
