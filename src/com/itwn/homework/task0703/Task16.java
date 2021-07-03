@@ -20,7 +20,5 @@ public class Task16 {
 		for (int[] e:list){
 			System.out.println(e[0]+"\t"+e[1]+"\t"+e[2]);
 		}
-
-
 	}
 }

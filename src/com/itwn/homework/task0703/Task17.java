@@ -4,10 +4,20 @@ import java.util.Arrays;
 
 public class Task17 {
 	public static void main(String[] args) {
-		int[] arrs=new int[]{23,45,17,11,13,89,72,26,3,17,11,13};
+//		int[] arrs=new int[]{23,45,17,11,13,89,72,26,3,17,11,13};
+		int[] arrs=new int[1000];
+		for (int i = 0; i < 1000; i++) {
+			arrs[i]=(int) (Math.random()*1000);
+		}
 //		int[] arrs=new int[]{7, 1, 3, 5, 13, 9, 3, 6, 11};
 		quickSort(arrs);
 		System.out.println(Arrays.toString(arrs));
+		for (int i = 0; i < arrs.length-1; i++) {
+			if (arrs[i]>arrs[i+1]){
+				System.out.println(false);
+				break;
+			}
+		}
 
 	}
 	public static void quickSort(int[] arr){
@@ -15,27 +25,28 @@ public class Task17 {
 	}
 
 	private static int partition(int[] arr, int left,int right){
-		int index=arr[left];
-		int i=left;//基准值 同时left 把左指针前移
-		left++;
-		while (left<right){
-			while (arr[left]<index&&left<right){
-				left++;
+		int i=left;
+		int j=right;
+		int pivot=arr[left];
+		while (i<j){
+			while (arr[j]>pivot&&j>i){
+				j--;
 			}
-			while (arr[right]>index&&right>=left){		// 防止相同时 right不移动 导致 返回的指针异常
-				right--;
+			if (j>i){
+				arr[i]=arr[j];
+				i++;
 			}
-			if (left<right){
-				int temp=arr[left];
-				arr[left]=arr[right];
-				arr[right]=temp;
-				left++;
-				right--;
+			while (arr[i]<pivot&&i<j){
+				i++;
+			}
+			if (i<j){
+				arr[j]=arr[i];
+				j--;
 			}
 		}
-		arr[i]=arr[right];
-		arr[right]=index;
-		return right;
+		arr[i]=pivot;
+		return i;
+
 	}
 
 
